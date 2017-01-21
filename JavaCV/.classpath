@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_73"/>
+	<classpathentry kind="lib" path="F:/javacv/javacv-bin/javacpp.jar" sourcepath="F:/javacv/javacpp"/>
+	<classpathentry kind="lib" path="F:/javacv/javacv-bin/javacv.jar" sourcepath="F:/javacv/javacv"/>
+	<classpathentry kind="lib" path="F:/javacv/javacv-bin/opencv.jar" sourcepath="F:/javacv/javacpp-presets/opencv/src"/>
+	<classpathentry kind="lib" path="F:/javacv/javacv-bin/opencv-windows-x86.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

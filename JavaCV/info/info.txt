@@ -1,0 +1,38 @@
+    public static boolean imWrite(Mat mat,String filePath){  
+    //不包含中文，直接使用opencv原生方法进行保存  
+        if(!containChinese(filePath)){  
+      return opencv_imgcodecs.imwrite(filePath, mat);  
+        }  
+       try {  
+     /** 
+      * 将mat转为java的BufferedImage 
+      */  
+      ToMat convert= new ToMat();  
+      Frame frame= convert.convert(mat);  
+      Java2DFrameConverter java2dFrameConverter = new Java2DFrameConverter();  
+      BufferedImage bufferedImage= java2dFrameConverter.convert(frame);  
+      ImageIO.write(bufferedImage, "PNG", new File(filePath));  
+        
+      return true;  
+      } catch (Exception e) {  
+    System.out.println("保存文件出现异常:"+filePath);  
+    e.printStackTrace();  
+      }  
+    return false;  
+    }  
+    /** 
+       *  
+       * 功能说明:判断字符是否包含中文 
+       * @param inputString 
+       * @return boolean 
+       * @author:rookiexu
+       * @exception: 
+       * 
+       */  
+    private static boolean containChinese(String inputString){  
+          //四段范围，包含全面  
+          String regex ="[\\u4E00-\\u9FA5\\u2E80-\\uA4CF\\uF900-\\uFAFF\\uFE30-\\uFE4F]";  
+          Pattern pattern = Pattern.compile(regex);  
+         Matcher matcher = pattern.matcher(inputString);  
+         return matcher.find();  
+      }
